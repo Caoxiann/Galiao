@@ -1,0 +1,72 @@
+.right-Avatar{
+    float:right;
+    width: 85rpx;
+    height: 85rpx;
+}
+.right-Triangle{
+    float:right;
+    margin-top: 35rpx;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 12px solid yellowgreen;
+    border-bottom: 8px solid transparent;
+}
+.right-message{
+    float: right;
+    margin-top: 10rpx;
+    line-height: 65rpx;
+    background: yellowgreen;
+    border-radius: 10rpx;
+    font-size: 12px;
+}
+
+.left-Avatar{
+    float:left;
+    width: 85rpx;
+    height: 85rpx;
+}
+.left-Triangle{
+    float:left;
+    margin-top: 35rpx;
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-right: 12px solid yellowgreen;
+    border-bottom: 8px solid transparent;
+}
+.left-message{
+    float: left;
+    margin-top: 10rpx;
+    line-height: 65rpx;
+    background: yellowgreen;
+    border-radius: 10rpx;
+    font-size: 12px;
+}
+.input-text{
+  flex: 0 0 66%;
+  max-width: 66%;
+  box-sizing: border-box;
+  padding: 10rpx;
+  max-height: 80%;
+  margin: auto;  
+  border-radius: 5px;
+}
+.micro{
+  /* flex: 0 0 10%; */
+  width: 50rpx;
+  height: 50rpx;
+  box-sizing: border-box;
+  margin: auto;
+}
+.emotion{
+  width: 50rpx;
+  height: 50rpx;
+  margin: auto;
+}
+.plus{
+  width: 50rpx;
+  height: 50rpx;
+  margin: auto;
+  box-sizing: border-box;
+}
