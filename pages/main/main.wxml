@@ -1,0 +1,13 @@
+<!--pages/main/main.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='width:100%;height:30%' >
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode='scaleToFill' style='width:100%;height:100%'/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='container'>
+<button class='wechat-btn' bindtap="tapWechat"> <text>微信</text> </button>
+<button class='qq-btn' bindtap="qq-btn"> <text>QQ</text> </button>
+</view>

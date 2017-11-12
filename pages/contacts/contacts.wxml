@@ -1,0 +1,27 @@
+<scroll-view class="appText" style='margin-bottom:80rpx'>
+  <view wx:for="{{array}}" id='{{index}}' class='flex item' bindtap='chooseOne'>
+    <view class='item-left'>
+      <image src="{{item.avatar}}" mode='scaleToFill'/>
+    </view>
+    <view class='item-middle'>
+      <view><text class="name">{{item.name}}</text></view>
+    </view>
+  <view class='item-right'></view>
+  </view>
+</scroll-view>
+<button class="show-btn" bindtap="addOne">添加联系人</button>
+
+<!--弹窗-->
+<!-- <view class="mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="dialog" wx:if="{{showModal}}"> -->
+  <!-- <view class="title"></view> -->
+  <!-- <view class="content">
+    <view class="input_1">
+      <input placeholder-class="input-holder" type="string" maxlength="10" bindinput="inputChange" class="input_2" placeholder="请输入数量"></input>
+    </view>
+  </view>
+  <view class="footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>     -->

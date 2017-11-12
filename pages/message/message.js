@@ -7,28 +7,24 @@ Page({
     userInfo: {
           nickName: "Chx",
     avatarUrl:"https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=23945a5e0924ab18f41be96554938da8/aec379310a55b3199a363d0d43a98226cefc17fe.jpg",
-          gender: 1, 
-          province: "Guangdong", 
-          city: "Guangzhou" },
-    message: [{ img: "/image/adam.jpg", text: "你好", me: false },
-              { img: "/image/adam.jpg", text: "哈哈", me: true },
-              { img: "/image/adam.jpg", text: "你好", me: false },
-              { img: "/image/adam.jpg", text: "哈哈", me: true },
-              { img: "/image/adam.jpg", text: "你好", me: false },
-              { img: "/image/adam.jpg", text: "哈哈", me: true },
-              { img: "/image/adam.jpg", text: "你好", me: false },
-              { img: "/image/adam.jpg", text: "哈哈", me: true },
-              { img: "/image/adam.jpg", text: "你好", me: false },
-              { img: "/image/adam.jpg", text: "哈哈", me: true },
-              { img: "/image/adam.jpg", text: "你好", me: false }],
+    },
+    message: [],
     animation:{},
     animation_2:{},
     tap:"tapOff",
+    me:true,
     
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var _self = this
+    console.log(options)
+    this.setData({
+      friendInfo:{
+        name: options.name,
+        avatar: options.avatar,
+      }
+    })
+
   },
   onReady:function(){
     // 页面渲染完成
@@ -51,11 +47,13 @@ Page({
   inputConfirm: function(e){
     console.log("confirm")
     console.log(e.detail.value)
+    var me = this.data.me
+    var img = me ? this.data.userInfo.avatarUrl : this.data.friendInfo.avatar
     var t = this.data.message;
     t.push({
-      img: this.data.userInfo.avatarUrl,
+      img: img,
       text:e.detail.value,
-      me:true,
+      me: me,
     })
     this.setData({
       message: t,
@@ -65,6 +63,20 @@ Page({
 
   tapVoice: function(){
     console.log("tap voice")
+  },
+
+  tapEmotion: function(){
+    console.log("tap emotion")
+    var title = this.data.me ? '已切换为对方':'已切换为我方'
+    wx.showToast({
+      title: title,
+      duration: 1000,
+      mask: true,
+    })
+    this.setData({
+      me: !this.data.me
+    })
+
   },
 
   elseBtn:function(){
@@ -105,20 +117,7 @@ Page({
       }
     })
   },
-  // getaddress:function(){
-  //   wx.getLocation({
-  //     type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-  //     success: function(res) {
-  //       var latitude = res.latitude
-  //       var longitude = res.longitude
-  //       wx.openLocation({
-  //         latitude: latitude,
-  //         longitude: longitude,
-  //         scale: 28
-  //       })
-  //     }
-  //   })
-  // },
+
   getlocat:function(){
     var _self = this
     wx.getLocation({
@@ -152,44 +151,4 @@ Page({
     }})
       
   },
-  getvoice:function(){
-    console.log("开始录音")
-    wx.startRecord({
-      // success: function(res) {
-      //   console.log("录音成功")
-      //   var tempFilePath = res.tempFilePath 
-      //   var t = _self.data.message;
-      //   t.push({
-      //     img:_self.data.userInfo.avatarUrl,
-      //     text:"语音消息",
-      //     me:true,
-      //     voice:tempFilePath
-      //   })
-      //   _self.setData({
-      //     message:t
-      //   })
-      //   wx.playVoice({
-      //     filePath: tempFilePath,
-      //     complete: function(){
-      //       console.log(播放完毕)
-      //     }
-      //   })
-      // },
-      success: function(res) {
-        console.log("录音成功")
-        var tempFilePath = res.tempFilePath 
-      },
-      complete:function(res){
-        console.log("complete"+res)
-      },
-      fail: function(res) {
-        //录音失败
-        console.log("fail"+res)
-      }
-    })
-  },
-  stopvoice:function(){
-    wx.stopRecord()
-    console.log("stop")
-  }
 })

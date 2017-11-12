@@ -1,0 +1,30 @@
+/* pages/main/main.wxss */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 200rpx;
+}
+.wechat-btn{
+  margin-left: 80rpx;
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  display: table;
+}
+.wechat-btn text{
+  vertical-align: middle;
+  display: table-cell;
+}
+.qq-btn{
+  margin-right: 80rpx;
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  display: table;
+}
+.qq-btn text{
+  vertical-align: middle;
+  display: table-cell;
+}

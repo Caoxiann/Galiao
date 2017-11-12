@@ -31,7 +31,7 @@
     <view class="input-text" style='background:#F9F9F9'>
         <input bindconfirm="inputConfirm" placeholder="" />
     </view>
-    <image class='emotion' src='../../image/emotion.png' mode='scaleToFill'></image>
+    <image class='emotion' src='../../image/emotion.png' mode='scaleToFill' bindtap='tapEmotion'></image>
     <image class='plus' src='../../image/plus.png' mode='scaleToFill'></image>
 </view>
  <!-- <view id="elsePanel" animation="{{animation}}">
